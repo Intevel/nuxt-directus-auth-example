@@ -7,9 +7,12 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^6.2.0",
+    "@nuxtjs/eslint-config-typescript": "^11.0.0",
     "@nuxtjs/tailwindcss": "^6.1.0",
-    "@sidebase/nuxt-auth": "^0.0.1-beta.4",
     "nuxt": "3.0.0-rc.12"
+  },
+  "dependencies": {
+    "nuxt-directus": "^3.2.1",
+    "nuxt-icon": "^0.1.7"
   }
 }

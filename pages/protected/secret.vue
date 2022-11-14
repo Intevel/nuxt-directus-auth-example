@@ -1,5 +1,5 @@
 <template>
-  <Secret protection-type="named" href="https://github.com/sidebase/nuxt-user#named-middlewares" />
+  <Secret />
 </template>
 
 <script setup lang="ts">

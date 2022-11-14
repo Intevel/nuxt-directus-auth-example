@@ -1,20 +1,17 @@
 <template>
   <div class="max-w-5xl mx-auto mt-5 px-5">
     <h3 class="text-xl font-bold ">Authentication Overview</h3>
-    <p class="text-sm">See all available authentication & session information below.</p>
-    <pre v-if="status"><span>Status:</span> {{ status }}</pre>
-    <pre v-if="data"><span>Data:</span> {{ data }}</pre>
-    <pre v-if="csrfToken"><span>CSRF Token:</span> {{ csrfToken }}</pre>
-    <pre v-if="providers"><span>Providers:</span> {{ providers }}</pre>
+    <p class="text-sm">See all available authentication information below.</p>
+    <pre><span>Status:</span> {{ user ? 'Authenticated' : 'Not authenticated' }}</pre>
+    <pre v-if="user"><span>User:</span> {{ user }}</pre>
+    <pre v-if="token"><span>Token:</span> {{ token }}</pre>
   </div>
 </template>
 
-<script lang="ts" setup>
-import { useSession } from '#imports'
+<script setup>
+const token = useDirectusToken();
+const user = useDirectusUser();
 
-const { data, status, getCsrfToken, getProviders } = await useSession({ required: false })
-const providers = await getProviders()
-const csrfToken = await getCsrfToken()
 </script>
 
 <style scoped>
@@ -23,6 +20,6 @@ pre {
 }
 
 pre span {
-  @apply text-green-400;
+  @apply text-purple-400;
 }
 </style>

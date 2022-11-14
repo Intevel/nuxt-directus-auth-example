@@ -1,7 +1,10 @@
-import { defineNuxtRouteMiddleware } from '#app'
-import { useSession } from '#imports'
+export default defineNuxtRouteMiddleware(async (to, _from) => {
+    const user = useDirectusUser();
+    const { fetchUser } = useDirectusAuth()
+  
+    if (!user.value) {
+      return navigateTo("/login");
+    }
 
-export default defineNuxtRouteMiddleware(async () => {
-    console.info('in named middleware! protecting secrets')
-    await useSession()
-})
+    await fetchUser()
+  });
